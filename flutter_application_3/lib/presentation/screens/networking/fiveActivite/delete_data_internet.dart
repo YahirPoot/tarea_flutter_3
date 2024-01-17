@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/provider/fetch_album.dart';
 import 'package:flutter_application_3/provider/fetch_album_delete.dart';
+// import 'package:flutter_application_3/provider/fetch_album_delete.dart';
 import 'package:flutter_application_3/utils/album.dart';
 
 class DeleteDataInternet extends StatefulWidget {
@@ -16,7 +18,7 @@ class _DeleteDataInternet extends State<DeleteDataInternet> {
   @override
   void initState() {
     super.initState();
-    _futureAlbum = fetchAlbum2();
+    _futureAlbum = fetchAlbum();
   }
 
   @override

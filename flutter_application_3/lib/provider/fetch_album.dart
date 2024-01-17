@@ -1,16 +1,12 @@
-import 'dart:io';
+
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
-import '../utils/album.dart';
+import 'package:flutter_application_3/utils/album.dart';
 
 
 Future<Album> fetchAlbum() async {
   final response = await http.get(
     Uri.parse('https://jsonplaceholder.typicode.com/albums/1'),
-    headers: {
-      HttpHeaders.authorizationHeader: 'Basic your_api_token_here',
-    },
   );
   final responseJson = jsonDecode(response.body) as Map<String, dynamic>;
 
@@ -32,4 +28,6 @@ Future<Album> updateAlbum(String title) async {
     throw Exception('Failed to update Album');
   }
 }
+
+
 
