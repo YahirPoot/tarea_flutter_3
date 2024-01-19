@@ -10,4 +10,8 @@ export 'package:flutter_application_3/presentation/screens/networking/fourthActi
 export 'package:flutter_application_3/presentation/screens/networking/secondActivite/make_authenticate_request.dart';
 export 'package:flutter_application_3/presentation/screens/networking/sevenActivite/parse_json.dart';
 export 'package:flutter_application_3/presentation/screens/networking/threeActivite/send_data_to_internet.dart';
+export 'package:flutter_application_3/presentation/screens/persistence/firstActivite/sql_activite.dart';
+export 'package:flutter_application_3/presentation/screens/persistence/secondActivite/read_write_files.dart';
+export 'package:flutter_application_3/presentation/screens/persistence/threeActivite/store_key_value_data.dart';
+export 'package:flutter_application_3/presentation/views/home/my_home_page.dart';
 

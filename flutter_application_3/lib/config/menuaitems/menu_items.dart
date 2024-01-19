@@ -61,4 +61,12 @@ List<MenuItem> listMenuItems = [
       title: 'Parse JSON in the background',
       route: '/parse_json',
       icon: Icons.navigate_next),
+  MenuItem(
+      title: 'Persist data with SQLite',
+      route: '/slq_activite',
+      icon: Icons.navigate_next),
+  MenuItem(
+      title: 'Read and Write Files',
+      route: '/read_files',
+      icon: Icons.navigate_next)
 ];

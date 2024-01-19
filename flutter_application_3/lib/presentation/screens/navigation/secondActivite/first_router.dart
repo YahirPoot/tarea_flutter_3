@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class FirstRouter extends StatelessWidget {
   const FirstRouter({super.key});
@@ -34,7 +35,7 @@ class SecondRouter extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pop(context);
+            context.go('/');
           },
           child: const Text('Go Back!'),
         ),

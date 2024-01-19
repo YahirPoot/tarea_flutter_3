@@ -1,6 +1,5 @@
 import 'package:flutter_application_3/presentation/screens/navigation/firstActivite/main_screens.dart';
 import 'package:flutter_application_3/presentation/screens/screens.dart';
-import 'package:flutter_application_3/presentation/views/home/my_home_page.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
@@ -64,6 +63,18 @@ final router = GoRouter(
     GoRoute(
       path: '/parse_json',
       builder: (context, state) => const ParseJsonInTheBackground(),
+    ),
+    GoRoute(
+      path: '/slq_activite',
+      builder: (context, state) => const SqlLitePage(),
+    ),
+    GoRoute(
+      path: '/read_files',
+      builder: (context, state) => const ReadAndWriteFiles(),
+    ),
+    GoRoute(
+      path: '/store_data',
+      builder: (context, state) => const StoreKeyData()
     ),
   ],
 );
