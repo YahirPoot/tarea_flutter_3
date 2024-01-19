@@ -41,17 +41,10 @@ class _SqlLitePage extends State<SqlLitePage> {
       return;
     }
 
-    // int? id = int.tryParse(_idController.text);
-    // if (id == null) {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     const SnackBar(content: Text('solo numeros')),
-    //   );
-    //   return;
-    // }
-
     var fido = Dog(
       name: _nameController.text,
-      age: int.parse(_ageController.text), id: 1,
+      age: int.parse(_ageController.text),
+      id: 1,
     );
     await insertDog(fido);
     _updateDogList();
@@ -77,13 +70,6 @@ class _SqlLitePage extends State<SqlLitePage> {
       return;
     }
 
-    // int? id = int.tryParse(_idController.text);
-    // if (id == null) {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     const SnackBar(content: Text('solo numeros')),
-    //   );
-    //   return;
-    // }
     var dog = await getById(id);
     var fido = Dog(
       id: dog.id,
@@ -151,26 +137,12 @@ class _SqlLitePage extends State<SqlLitePage> {
                         return null;
                       },
                     ),
-                    // const SizedBox(height: 20),
-                    // const Text('Id del perro:'),
-                    // TextFormField(
-                    //   controller: _idController,
-                    //   validator: (value) {
-                    //     if (value == null || value.isEmpty) {
-                    //       return 'Please enter some text';
-                    //     }
-                    //     if (int.tryParse(value) == null) {
-                    //       return 'Please enter a valid number';
-                    //     }
-                    //     return null;
-                    //   },
-                    // )
                   ],
                 ),
               ),
             ),
             const SizedBox(height: 40.0),
-            const Text('List of Dogs'),
+            const Text('Lista de Perros'),
             Expanded(
               child: FutureBuilder<List<Dog>>(
                 future: dogs(),
@@ -184,21 +156,44 @@ class _SqlLitePage extends State<SqlLitePage> {
                     return ListView.builder(
                       itemCount: _dogs.length,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(
-                              'ID: ${_dogs[index].id}, Name: ${_dogs[index].name}'),
-                          subtitle: Text('Age: ${_dogs[index].age}'),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.delete),
-                            onPressed: () {
-                              _deleteDog(_dogs[index].id);
-                            },
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Card(
+                            child: ListTile(
+                                title: Text(
+                                    'ID: ${_dogs[index].id}, Name: ${_dogs[index].name}'),
+                                subtitle: Text('Age: ${_dogs[index].age}'),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0),
+                                onTap: () {
+                                  _nameController.text = _dogs[index].name;
+                                  _ageController.text =
+                                      _dogs[index].age.toString();
+                                  id = _dogs[index].id;
+                                },
+                                tileColor: Colors.blue[50],
+                                trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    IconButton(
+                                      icon: const Icon(Icons.edit),
+                                      onPressed: () {
+                                        _nameController.text =
+                                            _dogs[index].name;
+                                        _ageController.text =
+                                            _dogs[index].age.toString();
+                                        id = _dogs[index].id;
+                                      },
+                                    ),
+                                    IconButton(
+                                      icon: const Icon(Icons.delete),
+                                      onPressed: () {
+                                        _deleteDog(_dogs[index].id);
+                                      },
+                                    ),
+                                  ],
+                                )),
                           ),
-                          onTap: () {
-                            _nameController.text = _dogs[index].name;
-                            _ageController.text = _dogs[index].age.toString();
-                            id = _dogs[index].id;
-                          },
                         );
                       },
                     );
@@ -225,13 +220,6 @@ class _SqlLitePage extends State<SqlLitePage> {
             tooltip: 'Update Dog',
             child: const Icon(Icons.update),
           ),
-          // const SizedBox(height: 20),
-          // FloatingActionButton(
-          //   heroTag: 'hero3',
-          //   onPressed: _deleteDog,
-          //   tooltip: 'Delete Dog',
-          //   child: const Icon(Icons.delete),
-          // ),
         ],
       ),
     );

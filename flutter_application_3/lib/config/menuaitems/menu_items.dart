@@ -9,10 +9,10 @@ class MenuItem {
 }
 
 List<MenuItem> listMenuItems = [
-  MenuItem(
-      title: 'Animate a Widget Across Screens',
-      route: '/animated',
-      icon: Icons.abc),
+  // MenuItem(
+  //     title: 'Animate a Widget Across Screens',
+  //     route: '/animated',
+  //     icon: Icons.abc),
   MenuItem(
       title: 'Navigate to a new screen and back',
       route: '/navigation_buttom',
@@ -68,5 +68,9 @@ List<MenuItem> listMenuItems = [
   MenuItem(
       title: 'Read and Write Files',
       route: '/read_files',
-      icon: Icons.navigate_next)
+      icon: Icons.navigate_next),
+  MenuItem(
+      title: 'Store key-value data on disk',
+      route: '/store_data',
+      icon: Icons.navigate_next),
 ];

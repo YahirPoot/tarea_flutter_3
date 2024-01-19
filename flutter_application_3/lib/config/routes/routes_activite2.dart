@@ -3,14 +3,14 @@ import 'package:flutter_application_3/presentation/screens/screens.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/animated',
   routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const MyHomePage(
-        title: '',
-      ),
-    ),
+    // GoRoute(
+    //   path: '/',
+    //   builder: (context, state) => const MyHomePage(
+    //     title: '',
+    //   ),
+    // ),
     GoRoute(
       path: '/animated',
       builder: (context, state) => const MainScreen(),
@@ -73,10 +73,7 @@ final router = GoRouter(
       builder: (context, state) => const ReadAndWriteFiles(),
     ),
     GoRoute(
-      path: '/store_data',
-      builder: (context, state) => const StoreKeyData()
-    ),
+        path: '/store_data', 
+        builder: (context, state) => const StoreKeyData()),
   ],
 );
-
-

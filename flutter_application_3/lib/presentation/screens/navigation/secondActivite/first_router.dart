@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class FirstRouter extends StatelessWidget {
   const FirstRouter({super.key});
@@ -8,6 +7,8 @@ class FirstRouter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
+        centerTitle: true,
         title: const Text('First Router'),
       ),
       body: Center(
@@ -30,12 +31,14 @@ class SecondRouter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
+        centerTitle: true,
         title: const Text('Second Router'),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            context.go('/');
+            MaterialPageRoute(builder: (context) => const FirstRouter());
           },
           child: const Text('Go Back!'),
         ),
