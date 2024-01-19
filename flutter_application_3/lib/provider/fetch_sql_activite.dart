@@ -12,7 +12,7 @@ Future<Database> get database async {
   return _database!;
 }
 
-Future<Database> initializeDatabase() async {
+Future<Database> initializeDatabase() async {   
   WidgetsFlutterBinding.ensureInitialized();
   return openDatabase(
     join(await getDatabasesPath(), 'doggie_database.db'),

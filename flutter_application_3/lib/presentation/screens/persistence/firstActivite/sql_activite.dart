@@ -45,7 +45,6 @@ class _SqlLitePage extends State<SqlLitePage> {
     var fido = Dog(
       name: _nameController.text,
       age: int.parse(_ageController.text),
-      id: 1,
     );
     await insertDog(fido);
     _updateDogList();
@@ -177,7 +176,7 @@ class _SqlLitePage extends State<SqlLitePage> {
                                   _nameController.text = _dogs[index].name;
                                   _ageController.text =
                                       _dogs[index].age.toString();
-                                  id = _dogs[index].id;
+                                  id = _dogs[index].id!;
                                 },
                                 tileColor: Colors.blue[50],
                                 trailing: Row(
@@ -190,14 +189,14 @@ class _SqlLitePage extends State<SqlLitePage> {
                                             _dogs[index].name;
                                         _ageController.text =
                                             _dogs[index].age.toString();
-                                        id = _dogs[index].id;
+                                        id = _dogs[index].id!;
                                       },
                                     ),
                                     IconButton(
                                       icon: const Icon(
                                           Icons.delete_outline_sharp),
                                       onPressed: () {
-                                        _deleteDog(_dogs[index].id);
+                                        _deleteDog(_dogs[index].id!);
                                       },
                                     ),
                                   ],
