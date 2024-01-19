@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/provider/fetxh_album_create.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../utils/album.dart';
 
 class SendDataToInternet extends StatefulWidget {
@@ -25,7 +26,16 @@ class _SendDataToInternet extends State<SendDataToInternet> {
       ),
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.cyan,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  context.go('/animated');
+                },
+                icon: const Icon(Icons.arrow_back))
+          ],
           title: const Text('Create Data Example'),
+          centerTitle: true,
         ),
         body: Container(
           alignment: Alignment.center,

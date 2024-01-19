@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/utils/todo.dart';
+import 'package:go_router/go_router.dart';
 
 class MainTodosScreen extends StatelessWidget {
   const MainTodosScreen({super.key});
@@ -7,6 +8,7 @@ class MainTodosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Passing Data',
       home: TodosScreen(
         todos: List.generate(
@@ -27,7 +29,16 @@ class TodosScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back))
+        ],
         title: const Text('Todos'),
+        centerTitle: true,
       ),
       body: ListView.builder(
         itemCount: todos.length,

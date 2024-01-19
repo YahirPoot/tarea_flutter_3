@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen2 extends StatelessWidget {
   const HomeScreen2({super.key});
@@ -7,7 +8,16 @@ class HomeScreen2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back))
+        ],
         title: const Text('Returning Data Demo'),
+        centerTitle: true,
       ),
       body: const Center(
         child: SelectionButtom(),
@@ -54,7 +64,16 @@ class SelectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back))
+        ],
         title: const Text('Pick an option '),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(

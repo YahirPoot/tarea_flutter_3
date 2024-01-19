@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class ActiviteSix extends StatelessWidget {
@@ -8,6 +9,7 @@ class ActiviteSix extends StatelessWidget {
   Widget build(BuildContext context) {
     const title = 'WebSocket Demo';
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: title,
       home: CommunicateWithWebSocket(
         title: title,
@@ -35,7 +37,16 @@ class _CommunicateWithWebSocket extends State<CommunicateWithWebSocket> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back))
+        ],
         title: Text(widget.title),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -51,11 +62,10 @@ class _CommunicateWithWebSocket extends State<CommunicateWithWebSocket> {
               height: 24,
             ),
             StreamBuilder(
-              stream: _channel.stream,
-              builder: (context, snapshot) {
-                return Text(snapshot.hasData ? '${snapshot.data}' : '');
-              }
-            ),
+                stream: _channel.stream,
+                builder: (context, snapshot) {
+                  return Text(snapshot.hasData ? '${snapshot.data}' : '');
+                }),
           ],
         ),
       ),
@@ -63,15 +73,16 @@ class _CommunicateWithWebSocket extends State<CommunicateWithWebSocket> {
         onPressed: _sendMessage,
         tooltip: 'Send message',
         child: const Icon(Icons.send),
-      ), 
+      ),
     );
   }
+
   void _sendMessage() {
     if (_controller.text.isNotEmpty) {
       _channel.sink.add(_controller.text);
     }
   }
-  
+
   @override
   void dispose() {
     _channel.sink.close();
@@ -79,6 +90,3 @@ class _CommunicateWithWebSocket extends State<CommunicateWithWebSocket> {
     super.dispose();
   }
 }
-
-
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class FirstRouter extends StatelessWidget {
   const FirstRouter({super.key});
@@ -7,7 +8,14 @@ class FirstRouter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back)),
+        ],
+        backgroundColor: Colors.cyan,
         centerTitle: true,
         title: const Text('First Router'),
       ),
@@ -31,14 +39,21 @@ class SecondRouter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back)),
+        ],
+        backgroundColor: Colors.cyan,
         centerTitle: true,
         title: const Text('Second Router'),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            MaterialPageRoute(builder: (context) => const FirstRouter());
+            Navigator.pop(context);
           },
           child: const Text('Go Back!'),
         ),

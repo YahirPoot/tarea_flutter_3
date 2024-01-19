@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/provider/fetch_album_delete.dart';
 import 'package:flutter_application_3/utils/album.dart';
+import 'package:go_router/go_router.dart';
 
 class DeleteDataInternet extends StatefulWidget {
   const DeleteDataInternet({super.key});
@@ -28,7 +29,16 @@ class _DeleteDataInternet extends State<DeleteDataInternet> {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.cyan,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  context.go('/animated');
+                },
+                icon: const Icon(Icons.arrow_back))
+          ],
           title: const Text('Delete Data Example'),
+          centerTitle: true,
         ),
         body: Center(
           child: FutureBuilder<Album>(

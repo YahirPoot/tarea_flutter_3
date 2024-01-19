@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/provider/fetch_sql_activite.dart';
 import 'package:flutter_application_3/utils/dog.dart';
+import 'package:go_router/go_router.dart';
 
 class SqlLitePage extends StatefulWidget {
   const SqlLitePage({super.key});
@@ -100,9 +101,16 @@ class _SqlLitePage extends State<SqlLitePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back))
+        ],
         title: const Text('Base de Datos Dog'),
         centerTitle: true,
-        backgroundColor: Colors.blue,
       ),
       body: Center(
         child: Column(
@@ -176,7 +184,7 @@ class _SqlLitePage extends State<SqlLitePage> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     IconButton(
-                                      icon: const Icon(Icons.edit),
+                                      icon: const Icon(Icons.edit_outlined),
                                       onPressed: () {
                                         _nameController.text =
                                             _dogs[index].name;
@@ -186,7 +194,8 @@ class _SqlLitePage extends State<SqlLitePage> {
                                       },
                                     ),
                                     IconButton(
-                                      icon: const Icon(Icons.delete),
+                                      icon: const Icon(
+                                          Icons.delete_outline_sharp),
                                       onPressed: () {
                                         _deleteDog(_dogs[index].id);
                                       },
@@ -211,14 +220,14 @@ class _SqlLitePage extends State<SqlLitePage> {
             heroTag: 'hero1',
             onPressed: _insertDog,
             tooltip: 'Insert Dog',
-            child: const Icon(Icons.add),
+            child: const Icon(Icons.add_box),
           ),
           const SizedBox(height: 20),
           FloatingActionButton(
             heroTag: 'hero2',
             onPressed: () => _updateDog(id),
             tooltip: 'Update Dog',
-            child: const Icon(Icons.update),
+            child: const Icon(Icons.update_outlined),
           ),
         ],
       ),

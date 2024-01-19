@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FetchStoreKeyData extends StatefulWidget {
@@ -38,7 +39,16 @@ class _FetchStoreKeyData extends State<FetchStoreKeyData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back))
+        ],
         title: Text(widget.title),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(

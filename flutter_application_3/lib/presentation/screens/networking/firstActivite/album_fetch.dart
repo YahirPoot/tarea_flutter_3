@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/provider/fetch_album.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../utils/album.dart';
 
@@ -30,7 +31,16 @@ class _AlbumActivite extends State<AlbumActivite> {
       ),
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.cyan,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  context.go('/animated');
+                },
+                icon: const Icon(Icons.arrow_back))
+          ],
           title: const Text('Fetch Data Example'),
+          centerTitle: true,
         ),
         body: Center(
           child: FutureBuilder<Album>(

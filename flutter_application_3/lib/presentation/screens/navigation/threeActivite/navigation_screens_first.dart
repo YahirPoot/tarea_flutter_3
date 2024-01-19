@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ClassMain extends StatelessWidget {
   const ClassMain({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Navigate with named routes',
       initialRoute: '/',
       routes: {
@@ -15,6 +17,7 @@ class ClassMain extends StatelessWidget {
     );
   }
 }
+
 class SecondScreen extends StatelessWidget {
   const SecondScreen({super.key});
 
@@ -22,6 +25,15 @@ class SecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back)),
+        ],
+        backgroundColor: Colors.cyan,
+        centerTitle: true,
         title: const Text('Second Screen'),
       ),
       body: Center(
@@ -45,6 +57,15 @@ class FirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back)),
+        ],
+        backgroundColor: Colors.cyan,
+        centerTitle: true,
         title: const Text('Fisrt Screen'),
       ),
       body: Center(
@@ -57,5 +78,3 @@ class FirstScreen extends StatelessWidget {
     );
   }
 }
-
-

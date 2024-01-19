@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/provider/fetch_photo.dart';
 import 'package:flutter_application_3/utils/photo.dart';
+import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
-
 
 class ParseJsonInTheBackground extends StatelessWidget {
   const ParseJsonInTheBackground({super.key});
@@ -27,7 +26,16 @@ class ParseJson2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back))
+        ],
         title: Text(title),
+        centerTitle: true,
       ),
       body: FutureBuilder<List<Photo>>(
         future: fetchPhotos(http.Client()),

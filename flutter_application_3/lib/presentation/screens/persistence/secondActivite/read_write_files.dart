@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:path_provider/path_provider.dart';
 
 class ReadAndWriteFiles extends StatelessWidget {
@@ -88,7 +89,16 @@ class _FlutterDemoState extends State<FlutterDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back))
+        ],
         title: const Text('Reading and Writing Files'),
+        centerTitle: true,
       ),
       body: Center(
         child: Text(

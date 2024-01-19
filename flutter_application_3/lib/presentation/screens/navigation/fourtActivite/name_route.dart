@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class NameRoute extends StatelessWidget {
   const NameRoute({super.key});
@@ -6,9 +7,10 @@ class NameRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: {
         ExtractArgumentsScreen.routeName: (context) =>
-          const ExtractArgumentsScreen(),
+            const ExtractArgumentsScreen(),
       },
       onGenerateRoute: (settings) {
         if (settings.name == PassArgumentsScreen.routeName) {
@@ -38,7 +40,16 @@ class HomeScreen3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back)),
+        ],
         title: const Text('Home Screen'),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
@@ -89,7 +100,16 @@ class ExtractArgumentsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back)),
+        ],
         title: Text(args.title),
+        centerTitle: true,
       ),
       body: Center(
         child: Text(args.message),

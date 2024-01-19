@@ -16,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         title: const Text('Main Screen'),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.cyan,
       ),
       drawer: Drawer(
         child: ListView(
