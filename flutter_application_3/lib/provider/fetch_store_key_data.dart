@@ -40,13 +40,11 @@ class _FetchStoreKeyData extends State<FetchStoreKeyData> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.cyan,
-        actions: [
-          IconButton(
-              onPressed: () {
-                context.go('/animated');
-              },
-              icon: const Icon(Icons.arrow_back))
-        ],
+        leading: IconButton(
+            onPressed: () {
+              context.go('/animated');
+            },
+            icon: const Icon(Icons.arrow_back)),
         title: Text(widget.title),
         centerTitle: true,
       ),
@@ -54,13 +52,21 @@ class _FetchStoreKeyData extends State<FetchStoreKeyData> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'You have pushed the button this many times: ',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            Card(
+              color: Colors.cyan,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'You have pushed the button this many times: ',
+                  ),
+                  Text(
+                    '$_counter',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

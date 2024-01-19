@@ -31,13 +31,11 @@ class _AlbumActivite2 extends State<AlbumActivite2> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.cyan,
-          actions: [
-            IconButton(
-                onPressed: () {
-                  context.go('/animated');
-                },
-                icon: const Icon(Icons.arrow_back))
-          ],
+          leading: IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back)),
           title: const Text('Fetch Data Example'),
           centerTitle: true,
         ),

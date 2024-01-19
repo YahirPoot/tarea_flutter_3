@@ -8,13 +8,11 @@ class FirstRouter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () {
-                context.go('/animated');
-              },
-              icon: const Icon(Icons.arrow_back)),
-        ],
+        leading: IconButton(
+            onPressed: () {
+              context.go('/animated');
+            },
+            icon: const Icon(Icons.arrow_back)),
         backgroundColor: Colors.cyan,
         centerTitle: true,
         title: const Text('First Router'),

@@ -30,13 +30,11 @@ class _DeleteDataInternet extends State<DeleteDataInternet> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.cyan,
-          actions: [
-            IconButton(
-                onPressed: () {
-                  context.go('/animated');
-                },
-                icon: const Icon(Icons.arrow_back))
-          ],
+          leading: IconButton(
+              onPressed: () {
+                context.go('/animated');
+              },
+              icon: const Icon(Icons.arrow_back)),
           title: const Text('Delete Data Example'),
           centerTitle: true,
         ),

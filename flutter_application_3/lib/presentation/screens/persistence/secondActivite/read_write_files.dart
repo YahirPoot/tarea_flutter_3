@@ -90,13 +90,11 @@ class _FlutterDemoState extends State<FlutterDemo> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.cyan,
-        actions: [
-          IconButton(
-              onPressed: () {
-                context.go('/animated');
-              },
-              icon: const Icon(Icons.arrow_back))
-        ],
+        leading: IconButton(
+            onPressed: () {
+              context.go('/animated');
+            },
+            icon: const Icon(Icons.arrow_back)),
         title: const Text('Reading and Writing Files'),
         centerTitle: true,
       ),

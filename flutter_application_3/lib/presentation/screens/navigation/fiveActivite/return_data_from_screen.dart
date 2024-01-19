@@ -9,13 +9,11 @@ class HomeScreen2 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.cyan,
-        actions: [
-          IconButton(
-              onPressed: () {
-                context.go('/animated');
-              },
-              icon: const Icon(Icons.arrow_back))
-        ],
+        leading: IconButton(
+            onPressed: () {
+              context.go('/animated');
+            },
+            icon: const Icon(Icons.arrow_back)),
         title: const Text('Returning Data Demo'),
         centerTitle: true,
       ),
